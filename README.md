@@ -53,7 +53,16 @@ You need to operate inside a docker container (*mynoetic*).
     source devel/setup.bash
     ```
 
-1. Launch gazebo
+1. Launch rviz
     ```
     roslaunch bsl_plotter2_description gazebo.launch
     ```
+1. Launch IK solver
+    ```
+    roslaunch plotter_controller solve_ik.launch
+    ```
+1. Run servo driver
+    ```
+    rosrun plotter_controller feetech_driver.py
+    ```
+
