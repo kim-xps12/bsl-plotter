@@ -8,6 +8,18 @@ import tf_conversions
 import geometry_msgs.msg
 import numpy as np
 
+import math
+
+# Written by ChatGPT
+def inverse_kinematics(x, y, l1, l2):
+    theta2 = math.acos((x**2 + y**2 - l1**2 - l2**2) / (2 * l1 * l2))
+    k1 = l1**2 + x**2 + y**2 - l2**2
+    k2 = 2*l1*math.sqrt(x**2 + y**2)
+    
+    theta1 = math.atan2(y, x) - math.acos(k1/k2)
+    
+    return np.rad2deg(theta1), np.rad2deg(theta2)
+
 
 def solve_ik():
 
@@ -65,6 +77,13 @@ def update_tf(th1, th2, th3):
     br.sendTransform(t2)
 
 
+def target_line(x):
+
+    y = 0 #[mm]
+
+    return y
+
+
 def main():
 
     rospy.init_node('ik_solver')
@@ -78,6 +97,8 @@ def main():
     theta2 = 0  #[rad]
     theta3 = 0  #[rad]
     t = 0 #[sec]
+
+    
     while not rospy.is_shutdown():
 
         #th1, th2 = solve_ik()
@@ -90,13 +111,20 @@ def main():
 
         publisher_angles.publish(js)
        
-        theta1 = 45 + 20*np.sin(1*t)
-        theta2 = theta1*(-1)
+        #theta1 = 45 + 20*np.sin(1*t)
+        #theta2 = theta1*(-1)
+        
+        x = 100*np.sin(t)+200 #[mm]
+        y = target_line(x)
+
+        theta1, theta2 = inverse_kinematics(x, y, 200, 150)
+
         t = t + (1/rate) #[sec]
 
         update_tf(theta1, theta2, theta3)
-        rospy.loginfo(js.name)
-        rospy.loginfo(js.position)
+        #rospy.loginfo(js.name)
+        #rospy.loginfo(js.position)
+        rospy.loginfo(x)
         r.sleep()
 
 
