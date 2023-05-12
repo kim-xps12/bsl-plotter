@@ -1,4 +1,4 @@
-bsl_plotter2_controller:
+bsl_plotter_controller:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController

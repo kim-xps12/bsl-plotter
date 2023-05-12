@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="bsl_plotter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bsl_plotter_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bsl_plotter_description)/urdf/bsl_plotter.trans" />
+<xacro:include filename="$(find bsl_plotter_description)/urdf/bsl_plotter.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.02683994115918031 0.026839941159171318 0.0013078177490804205" rpy="0 0 0"/>
+    <mass value="0.4555514587471985"/>
+    <inertia ixx="0.000718" iyy="0.000718" izz="0.00143" ixy="0.000196" iyz="8e-06" ixz="8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_upper_arm_v7_1">
+  <inertial>
+    <origin xyz="0.10001640364560788 4.5612327179100755e-06 0.018695208453513433" rpy="0 0 0"/>
+    <mass value="0.780812047923547"/>
+    <inertia ixx="0.000187" iyy="0.004839" izz="0.004806" ixy="0.0" iyz="0.0" ixz="-0.000445"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.012628" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_upper_arm_v7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.012628" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_upper_arm_v7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_fore_arm_v4_1">
+  <inertial>
+    <origin xyz="0.09525045358745049 6.763576966533446e-05 0.014023784367027892" rpy="0 0 0"/>
+    <mass value="0.6036557554989143"/>
+    <inertia ixx="8e-05" iyy="0.001712" izz="0.001736" ixy="-2e-06" iyz="-0.0" ixz="-4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.200015 -0.0 -0.049828" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_fore_arm_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.200015 -0.0 -0.049828" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_fore_arm_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_hand_v9_1">
+  <inertial>
+    <origin xyz="0.01743661358196874 0.01913026634429513 -0.015610882147768873" rpy="0 0 0"/>
+    <mass value="0.18190095498276979"/>
+    <inertia ixx="0.000195" iyy="0.000198" izz="3.4e-05" ixy="-0.0" iyz="-1e-06" ixz="-2.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.350015 0.0186 -0.064546" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_hand_v9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.350015 0.0186 -0.064546" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bsl_plotter_description/meshes/link_hand_v9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rev1" type="continuous">
+  <origin xyz="0.0 0.0 0.012628" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link_upper_arm_v7_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="rev2" type="continuous">
+  <origin xyz="0.200015 0.0 0.0372" rpy="0 0 0"/>
+  <parent link="link_upper_arm_v7_1"/>
+  <child link="link_fore_arm_v4_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="rev3" type="continuous">
+  <origin xyz="0.15 -0.0186 0.014718" rpy="0 0 0"/>
+  <parent link="link_fore_arm_v4_1"/>
+  <child link="link_hand_v9_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+</robot>

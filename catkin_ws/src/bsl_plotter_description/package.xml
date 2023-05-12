@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>bsl_plotter2_description</name>
+  <name>bsl_plotter_description</name>
   <version>0.0.0</version>
-<description>The bsl_plotter2_description package</description>
+<description>The bsl_plotter_description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
