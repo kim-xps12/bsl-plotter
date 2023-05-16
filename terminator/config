@@ -35,7 +35,7 @@
       order = 0
       profile = default
       uuid = edbed2f4-a6f4-46f7-8b28-219e4d0afb94
-      command = docker attach mynoetic;
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
     [[[child4]]]
       type = HPaned
       parent = child2
@@ -48,14 +48,14 @@
       order = 0
       profile = default
       uuid = e630ccbf-dbae-4a26-b46e-3e8542c32963
-      command = docker attach mynoetic;
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
     [[[terminal6]]]
       type = Terminal
       parent = child4
       order = 1
       profile = default
       uuid = 07cfd122-8dab-494e-838c-424909e8ac4d
-      command = docker attach mynoetic;
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
     [[[terminal7]]]
       type = Terminal
       parent = child1
