@@ -9,9 +9,31 @@ import tf_conversions
 import geometry_msgs.msg
 import time
 from sensor_msgs.msg import JointState
+from std_msgs.msg import String
 
 from arm_control import ArmControl
 
+
+target_x = 200
+target_y = 200
+
+SPEED = 2
+
+def callback(data):
+    global target_x, target_y
+
+    if data.data == 'a':
+        if target_x > 100:
+            target_x -= SPEED
+    if data.data == 'd':
+        if target_x < 300:
+            target_x += SPEED
+    if data.data == 's':
+        if target_y > 100:
+            target_y -= SPEED
+    if data.data == 'w':
+        if target_y < 300:
+            target_y += SPEED
 
 def target_line(t):
 
@@ -47,6 +69,7 @@ def main():
 
     rospy.init_node('ik_solver')
     publisher_angles = rospy.Publisher('joint_states', JointState, queue_size=10)
+    rospy.Subscriber('/keyboard_publisher/key', String, callback)
 
     rate = 100 #[hz]
 
@@ -63,7 +86,9 @@ def main():
 
     while not rospy.is_shutdown():
 
-        x, y = target_line(t)
+        # x, y = target_line(t)
+        x = target_x
+        y = target_y
         theta1, theta2 = arm.solve_ik_deg(x, y)
 
         arm.update_angles(theta1, theta2)
