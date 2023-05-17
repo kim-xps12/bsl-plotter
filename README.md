@@ -77,5 +77,8 @@ sudo apt install terminator
 mkdir -p ~/.config/terminator/
 cp terminator/config ~/.config/terminator/config
 # Launch terminator(Run after `docker-compose up -d`)
+cd docker_ros/
+docker-compose up -d
+cd ..
 terminator
 ```
