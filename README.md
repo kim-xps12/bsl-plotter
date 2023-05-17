@@ -74,6 +74,7 @@ cd bsl_plotter
 sudo apt update
 sudo apt install terminator
 # If using customized settings
+mkdir -p ~/.config/terminator/
 cp terminator/config ~/.config/terminator/config
 # Launch terminator(Run after `docker-compose up -d`)
 terminator
