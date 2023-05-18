@@ -65,3 +65,6 @@ You need to operate inside a docker container (*mynoetic*).
     ```
     rosrun plotter_controller feetech_driver.py
     ```
+
+## Reference
+[How to use Terminator](terminator/how_to_use_terminator.md)
