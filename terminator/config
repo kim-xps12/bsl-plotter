@@ -1,0 +1,65 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 74:27
+      maximised = True
+      fullscreen = False
+      size = 1438, 881
+      title = user@userserver: ~/Desktop/bsl-plotter/docker_ros
+      last_active_term = 07cfd122-8dab-494e-838c-424909e8ac4d
+      last_active_window = True
+    [[[child1]]]
+      type = VPaned
+      parent = child0
+      order = 0
+      position = 438
+      ratio = 0.5
+    [[[child2]]]
+      type = HPaned
+      parent = child1
+      order = 0
+      position = 489
+      ratio = 0.34124214933705516
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = edbed2f4-a6f4-46f7-8b28-219e4d0afb94
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
+    [[[child4]]]
+      type = HPaned
+      parent = child2
+      order = 1
+      position = 470
+      ratio = 0.5005324813631523
+    [[[terminal5]]]
+      type = Terminal
+      parent = child4
+      order = 0
+      profile = default
+      uuid = e630ccbf-dbae-4a26-b46e-3e8542c32963
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
+    [[[terminal6]]]
+      type = Terminal
+      parent = child4
+      order = 1
+      profile = default
+      uuid = 07cfd122-8dab-494e-838c-424909e8ac4d
+      command = cd docker_ros; docker-compose exec mynoetic /bin/bash;
+    [[[terminal7]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 249146a7-1183-491e-a45a-8ab680cdcb87
+[plugins]

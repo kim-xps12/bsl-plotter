@@ -23,9 +23,9 @@ W.I.P
     docker-compose up -d
     ```
 
-1. Attach container
+1. Execute a command in a running container
     ```
-    docker attach mynoetic 
+    docker-compose exec mynoetic /bin/bash
     ```
 
 1. Check GUI
@@ -66,3 +66,5 @@ You need to operate inside a docker container (*mynoetic*).
     rosrun plotter_controller feetech_driver.py
     ```
 
+## Reference
+[How to use Terminator](terminator/how_to_use_terminator.md)
