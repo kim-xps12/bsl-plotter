@@ -1,7 +1,7 @@
 <launch>
-  <arg name="model" default="$(find bsl_plotter2_description)/urdf/bsl_plotter2.xacro"/>
+  <arg name="model" default="$(find bsl_plotter_description)/urdf/bsl_plotter.xacro"/>
   <arg name="gui" default="true"/>
-  <arg name="rvizconfig" default="$(find bsl_plotter2_description)/launch/urdf.rviz"/>
+  <arg name="rvizconfig" default="$(find bsl_plotter_description)/launch/urdf.rviz"/>
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
   <param name="use_gui" value="$(arg gui)"/>
   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
