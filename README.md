@@ -62,7 +62,7 @@ You need to operate inside a docker container (*mynoetic*).
 
 1. Launch rviz
     ```
-    roslaunch bsl_plotter2_description gazebo.launch
+    roslaunch bsl_plotter_description display.launch
     ```
 1. Launch IK solver
     ```
