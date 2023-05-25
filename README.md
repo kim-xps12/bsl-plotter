@@ -9,7 +9,14 @@ This repository DOES NOT support NVIDIA graphic driver.
 
 ## Installation
 ### Hardware
-W.I.P
+The BSL-Plotter parts are in the `bsl-plotter/stl` directory. Please refer to URDF model for assembly.
+(3D model for assembly will be uploaded soon!)
+
+It is recommended to use a 3D printer to create the parts. The recommended printing conditions are as follows.
+- Nozzle: 0.4mm
+- Filament: ABS, PLA, PETG
+- Support: enable
+- Wall: 0.6~1.0mm
 
 ### Software
 1. Clone this repository
@@ -55,7 +62,7 @@ You need to operate inside a docker container (*mynoetic*).
 
 1. Launch rviz
     ```
-    roslaunch bsl_plotter2_description gazebo.launch
+    roslaunch bsl_plotter_description display.launch
     ```
 1. Launch IK solver
     ```
