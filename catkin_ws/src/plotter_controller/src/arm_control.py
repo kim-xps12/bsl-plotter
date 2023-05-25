@@ -14,7 +14,7 @@ class ArmControl:
     # Written by ChatGPT
 
    
-    l1 = 200.0 #[mm]
+    l1 = 205.0 #[mm]
     l2 = 150.0 #[mm]
     l3 = 22.50 #[mm]
     l23 = l2 + l3
@@ -57,6 +57,7 @@ class ArmControl:
         name_upper_arm = "link_upper_arm_v7_1"
         name_fore_arm = "link_fore_arm_v4_1"
         name_hand = "link_hand_v9_1"
+        name_finger = "link_finger"
 
         self.js.position = [th1, th2, th3]
         self.publisher_angles.publish(self.js)
@@ -102,9 +103,24 @@ class ArmControl:
         t2.transform.rotation.z = q2[2]
         t2.transform.rotation.w = q2[3]
 
+        t3 = geometry_msgs.msg.TransformStamped()
+        t3.header.stamp = rospy.Time.now()
+        t3.header.frame_id = name_hand
+        t3.child_frame_id = name_finger
+        t3.transform.translation.x = 0.0225
+        t3.transform.translation.y = 0.01925
+        t3.transform.translation.z = 0.0
+        q3 = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+        t3.transform.rotation.x = q2[0]
+        t3.transform.rotation.y = q2[1]
+        t3.transform.rotation.z = q2[2]
+        t3.transform.rotation.w = q2[3]
+
+
         br.sendTransform(t0)
         br.sendTransform(t1)
         br.sendTransform(t2)
+        br.sendTransform(t3)
 
     
     def up_pen(self):

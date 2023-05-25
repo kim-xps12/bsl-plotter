@@ -88,6 +88,14 @@
   </collision>
 </link>
 
+<link name="link_finger">
+  <inertial>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <mass value="0.18190095498276979"/>
+    <inertia ixx="0.000195" iyy="0.000198" izz="3.4e-05" ixy="-0.0" iyz="-1e-06" ixz="-2.6e-05"/>
+  </inertial>
+</link>
+
 <joint name="rev1" type="continuous">
   <origin xyz="0.0 0.0 0.012628" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -107,6 +115,14 @@
   <parent link="link_fore_arm_v4_1"/>
   <child link="link_hand_v9_1"/>
   <axis xyz="0.0 -1.0 -0.0"/>
+
 </joint>
+<joint name="rev4" type="continuous">
+  <origin xyz="0.225 0.0186 0.0" rpy="0 0 0"/>
+  <parent link="link_hand_v9_1"/>
+  <child link="link_finger"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
 
 </robot>
