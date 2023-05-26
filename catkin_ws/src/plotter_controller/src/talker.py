@@ -37,6 +37,8 @@
 ## to the 'chatter' topic
 
 import rospy
+
+from readchar import readkey, key
 from std_msgs.msg import String
 
 def talker():
@@ -45,8 +47,32 @@ def talker():
     rate = rospy.Rate(10) # 10hz
     while not rospy.is_shutdown():
         hello_str = "hello world %s" % rospy.get_time()
-        rospy.loginfo(hello_str)
-        pub.publish(hello_str)
+        # get key input
+        key_str = readkey()
+        rospy.loginfo("key_str: %s" % key_str)
+
+        str_to_pub = None
+
+        command_str = "wasdq"
+
+        if key_str in command_str:
+            if key_str == "w":
+                str_to_pub = "UP"
+            if key_str == "a":
+                str_to_pub = "LEFT"
+            if key_str == "s":
+                str_to_pub = "DOWN"
+            if key_str == "d":
+                str_to_pub = "RIGHT"
+            # loop kara nukeru
+            if key_str == "q":
+                break
+            
+
+        pub.publish(str_to_pub)
+        rospy.loginfo("str_to_pub: %s" % str_to_pub)
+
+
         rate.sleep()
 
 if __name__ == '__main__':
