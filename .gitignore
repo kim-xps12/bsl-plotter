@@ -2,3 +2,5 @@ catkin_ws/build
 catkin_ws/devel
 catkin_ws/logs
 catkin_ws/.catkin_tools
+*.swp
+
