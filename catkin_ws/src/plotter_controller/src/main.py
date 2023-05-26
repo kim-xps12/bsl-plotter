@@ -9,26 +9,30 @@ import tf_conversions
 import geometry_msgs.msg
 import time
 from sensor_msgs.msg import JointState
+from std_msgs.msg import String
 
 from arm_control import ArmControl
 
-
+LIMIT_MIN_X = 80
+LIMIT_MIN_Y = 80
+LIMIT_MAX_X = 240
+LIMIT_MAX_Y = 240
 x, y = 100, 100
 
-
-def callback():
+def callback(data):
     global x
     global y
+
     delta = 5
     rospy.loginfo(rospy.get_caller_id() + 'recieved "%s"', data.data)
     if data.data == "UP":
-        y += delta
+        y = min(y + delta, LIMIT_MAX_Y)
     if data.data == "DOWN":
-        y -= delta
+        y = max(y - delta, LIMIT_MIN_Y)
     if data.data == "LEFT":
-        x -= delta
+        x = max(x - delta, LIMIT_MIN_X)
     if data.data == "RIGHT":
-        x += delta
+        x = min(x + delta, LIMIT_MAX_X)
 
 def main():
     global x
@@ -61,7 +65,7 @@ def main():
 
         t = t + (1/rate) #[sec]
 
-        rospy.loginfo(x)
+        # rospy.loginfo(x)
         r.sleep()
 
 
