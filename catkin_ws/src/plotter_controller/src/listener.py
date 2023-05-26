@@ -33,6 +33,7 @@
 #
 # Revision $Id$
 
+#!/usr/bin/env python
 ## Simple talker demo that listens to std_msgs/Strings published 
 ## to the 'chatter' topic
 
@@ -40,7 +41,16 @@ import rospy
 from std_msgs.msg import String
 
 def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
+    rospy.loginfo(rospy.get_caller_id() + 'recieved "%s"', data.data)
+    if data.data == "UP":
+        move_up()
+    if data.data == "DOWN":
+        move_down()
+    if data.data == "LSFT":
+        move_left()
+    if data.data == "RIGHT":
+        move_right()
+        
 
 def listener():
 
