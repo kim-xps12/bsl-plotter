@@ -1,5 +1,7 @@
 # BSL-Plotter
 
+![3D model](./bsl-plotter.png)
+
 ## Environment
 - Ubuntu 20.04
 - docker, docker-compose
@@ -9,7 +11,7 @@ This repository DOES NOT support NVIDIA graphic driver.
 
 ## Installation
 ### Hardware
-The BSL-Plotter parts are in the `bsl-plotter/stl` directory. Please refer to URDF model for assembly.
+The BSL-Plotter parts are in the `bsl-plotter/stl` directory. Please refer to URDF model and above image for assembly. And, use 6mm BB-bullets-ball to assemble the thrust bearings.
 (3D model for assembly will be uploaded soon!)
 
 It is recommended to use a 3D printer to create the parts. The recommended printing conditions are as follows.
