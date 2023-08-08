@@ -86,7 +86,7 @@ def update_tf(th1, th2, th3):
 
 def main():
 
-    rospy.init_node('ik_solver')
+    rospy.init_node('test_swing')
     publisher_angles = rospy.Publisher('joint_state', JointState, queue_size=10)
 
     rate = 100 #[hz]
