@@ -49,6 +49,7 @@ It is recommended to use a 3D printer to create the parts. The recommended print
 
 ## ROS 
 You need to operate inside a docker container (*mynoetic*).
+It is required to be able to use multiple terminals using *tmux* or *terminator*. I recommend reading "How to use Terminator" in the Reference section.
 
 1. Go workspace
     ```
@@ -64,11 +65,11 @@ You need to operate inside a docker container (*mynoetic*).
     ```
     roslaunch bsl_plotter_description display.launch
     ```
-1. Launch IK solver
+1. Add new pane, and Launch IK solver
     ```
-    roslaunch plotter_controller solve_ik.launch
+    roslaunch plotter_controller test_swing.launch 
     ```
-1. Run servo driver
+1. Add new pane, Run servo driver
     ```
     rosrun plotter_controller feetech_driver.py
     ```
