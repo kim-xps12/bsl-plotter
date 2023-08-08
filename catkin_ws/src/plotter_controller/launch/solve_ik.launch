@@ -1,3 +1,0 @@
-<launch>
-  <node pkg="plotter_controller" type="ik_solver.py" name="ik_solver" output="screen" />
-</launch>
