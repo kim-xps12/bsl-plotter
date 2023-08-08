@@ -34,8 +34,8 @@ class ArmControl:
  
 
     def __inverse_kinematics(self, x, y):
-        theta2 = math.acos((x**2 + y**2 - self.l1**2 - self.l2**2) / (2 * self.l1 * self.l2))
-        k1 = self.l1**2 + x**2 + y**2 - self.l2**2
+        theta2 = math.acos((x**2 + y**2 - self.l1**2 - self.l23**2) / (2 * self.l1 * self.l23))
+        k1 = self.l1**2 + x**2 + y**2 - self.l23**2
         k2 = 2*self.l1*math.sqrt(x**2 + y**2)
     
         theta1 = math.atan2(y, x) - math.acos(k1/k2)
