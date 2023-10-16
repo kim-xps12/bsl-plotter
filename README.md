@@ -20,6 +20,21 @@ It is recommended to use a 3D printer to create the parts. The recommended print
 - Support: enable
 - Wall: 0.6~1.0mm
 
+**BOM**
+| Item | Model | Link |
+| --- | --- | --- |
+| Servo Motor | STS3215, Feetech | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16312/) |
+| Servo IF Board | FE-URT-1, Feetech  | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16295/) |
+| Filament | PolyTerra PLA, Polymaker | [Amazon](https://amzn.to/4028WbJ) |
+| Magnet | コクヨ マグネット 強力マグネットプレート 片面・粘着剤付き 6枚 耐荷重500g マク-S381 | [Amazon](https://amzn.to/3FkPehZ) |
+| White board | トレー付大きなホワイトボード ４５×６０ｃｍ | [DAISO](https://jp.daisonet.com/products/4549131460452?_pos=28&_sid=489c126bd&_ss=r) |
+| Pen | ホワイトボードマーカー（消し付、細芯、黒・赤・青、３本） | [DAISO](https://jp.daisonet.com/products/4549892198038?_pos=15&_sid=5683c238f&_ss=r) |
+
+**Servo ID Setting**
+- Root Joint: 1
+- Middle Joint: 2
+- Hand Joint: 3
+
 ### Software
 1. Clone this repository
     ```
