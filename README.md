@@ -30,7 +30,7 @@ It is recommended to use a 3D printer to create the parts. The recommended print
 | White board | トレー付大きなホワイトボード ４５×６０ｃｍ   | 1 pc | [DAISO](https://jp.daisonet.com/products/4549131460452?_pos=28&_sid=489c126bd&_ss=r) |
 | Pen | ホワイトボードマーカー（消し付、細芯、黒・赤・青、３本） |  1 pack | [DAISO](https://jp.daisonet.com/products/4549892198038?_pos=15&_sid=5683c238f&_ss=r) |
 | BB-Ball (for thrust bearing unit) | BB弾 | 1 pack | [DAISO](https://jp.daisonet.com/products/4549131354997) |
-| Wire | 3 core cable | about 50 cm | | 
+| Wire | 3 core cable | about 1 m | | 
 | Bolt | M2 tapping |  | included STS3215 |
 |      | M3-5mm  |  | included STS3215 |
 |      | M3-10mm | 4 pcs. | |
