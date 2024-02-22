@@ -21,19 +21,33 @@ It is recommended to use a 3D printer to create the parts. The recommended print
 - Wall: 0.6~1.0mm
 
 **BOM**
-| Item | Model | Link |
-| --- | --- | --- |
-| Servo Motor | STS3215, Feetech | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16312/) |
-| Servo IF Board | FE-URT-1, Feetech  | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16295/) |
-| Filament | PolyTerra PLA, Polymaker | [Amazon](https://amzn.to/4028WbJ) |
-| Magnet | コクヨ マグネット 強力マグネットプレート 片面・粘着剤付き 6枚 耐荷重500g マク-S381 | [Amazon](https://amzn.to/3FkPehZ) |
-| White board | トレー付大きなホワイトボード ４５×６０ｃｍ | [DAISO](https://jp.daisonet.com/products/4549131460452?_pos=28&_sid=489c126bd&_ss=r) |
-| Pen | ホワイトボードマーカー（消し付、細芯、黒・赤・青、３本） | [DAISO](https://jp.daisonet.com/products/4549892198038?_pos=15&_sid=5683c238f&_ss=r) |
+| Item | Model | Quat. | Link |
+| --- | --- | --- | --- |
+| Servo Motor    | STS3215, Feetech   | 3 pcs. | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16312/) |
+| Servo IF Board | FE-URT-1, Feetech  | 1 pc   | [akitsuki](https://akizukidenshi.com/catalog/g/gM-16295/) |
+| Filament | PolyTerra PLA, Polymaker | 1 roll | [Amazon](https://amzn.to/4028WbJ) |
+| Magnet | コクヨ マグネット 強力マグネットプレート 片面・粘着剤付き 6枚 耐荷重500g マク-S381 | 1 pack | [Amazon](https://amzn.to/3FkPehZ) |
+| White board | トレー付大きなホワイトボード ４５×６０ｃｍ   | 1 pc | [DAISO](https://jp.daisonet.com/products/4549131460452?_pos=28&_sid=489c126bd&_ss=r) |
+| Pen | ホワイトボードマーカー（消し付、細芯、黒・赤・青、３本） |  1 pack | [DAISO](https://jp.daisonet.com/products/4549892198038?_pos=15&_sid=5683c238f&_ss=r) |
+| BB-Ball (for thrust bearing unit) | BB弾 | 1 pack | [DAISO](https://jp.daisonet.com/products/4549131354997) |
+| Wire | 3 core cable | about 50 cm | | 
+| Bolt | M2 tapping |  | included STS3215 |
+|      | M3-5mm  |  | included STS3215 |
+|      | M3-10mm | 4 pcs. | |
+|      | M3-15mm | 2 pcs. | |
+|      | M3-25mm | 4 pcs. | |
+|      | M3-30mm | 2 pcs. | |
+|      | M3-35mm | 4 pcs. | |
+|      | M3-40mm | 4 pcs. | |
+| Nuts | M3 Hex  | 20 pcs. | |
 
 **Servo ID Setting**
 - Root Joint: 1
 - Middle Joint: 2
 - Hand Joint: 3
+
+**Cable Extension**
+Extend the cable included with STS3215 to double the length. You can use a connector or solder it.
 
 ### Software
 1. Clone this repository
