@@ -10,7 +10,7 @@ import geometry_msgs.msg
 from sensor_msgs.msg import JointState
 
 
-class ArmControl:
+class ControlArm:
     # Written by ChatGPT
 
    

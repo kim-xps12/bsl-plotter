@@ -10,7 +10,7 @@ import geometry_msgs.msg
 import time
 from sensor_msgs.msg import JointState
 
-from arm_control import ArmControl
+from control_arm import ControlArm
 
 
 def target_line(t):
@@ -33,7 +33,7 @@ def main():
     theta2 = 0  #[rad]
     t = 0 #[sec]
 
-    arm = ArmControl(publisher_angles)
+    arm = ControlArm(publisher_angles)
 
     # up pen
     #arm.up_pen()
