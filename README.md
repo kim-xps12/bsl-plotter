@@ -58,7 +58,7 @@ Extend the cable included with STS3215 to double the length. You can use a conne
 1. Launch docker container
     ```
     cd bsl-plotter/docker_ros
-    docker-compose up -d
+    docker compose up -d
     ```
 
 1. Execute a command in a running container
