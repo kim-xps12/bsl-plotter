@@ -4,7 +4,7 @@
 
 ## Environment
 - Ubuntu 20.04
-- docker, docker-compose
+- docker, docker compose
 
 [NOTE]
 This repository DOES NOT support NVIDIA graphic driver.
@@ -63,7 +63,7 @@ Extend the cable included with STS3215 to double the length. You can use a conne
 
 1. Execute a command in a running container
     ```
-    docker-compose exec mynoetic /bin/bash
+    docker compose exec mynoetic /bin/bash
     ```
 
 1. Check GUI
