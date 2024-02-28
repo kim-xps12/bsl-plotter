@@ -1,3 +1,3 @@
 <launch>
-  <node pkg="plotter_controller" type="test_swing.py" name="ik_solver" output="screen" />
+  <node pkg="plotter_controller" type="test_swing.py" name="test_swing" output="screen" />
 </launch>
