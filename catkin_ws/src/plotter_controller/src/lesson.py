@@ -23,7 +23,7 @@ def target_line(t):
 
 def main():
 
-    rospy.init_node('ik_solver')
+    rospy.init_node('lesson_controller')
     publisher_angles = rospy.Publisher('joint_state', JointState, queue_size=10)
 
     rate = 100 #[hz]
