@@ -105,5 +105,20 @@ It is required to be able to use multiple terminals using *tmux* or *terminator*
     rosrun plotter_controller feetech_driver.py
     ```
 
+## G-code drawer
+
+### How to draw
+
+```
+rosrun plotter_controller draw_gcode.py
+```
+
+launch file is comming soon...
+
+**NOTICE!**
+[Memory Usage Warning for Large G-code Files]
+This implementation loads entire G-code files into memory, which can lead to high memory usage with large files. If handling large G-code files, be aware of your system's memory capacity to avoid potential issues. Consider splitting very large files to manage memory usage effectively.
+
+
 ## Reference
 [How to use Terminator](terminator/how_to_use_terminator.md)
