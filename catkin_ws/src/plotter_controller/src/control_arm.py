@@ -50,16 +50,20 @@ class ControlArm:
         return np.rad2deg(theta1), np.rad2deg(theta2)
 
 
-    def update_angles(self, th1, th2):
+    def update_angles(self, th1, th2, th3=None):
 
-        th3 = self.theta3
+        self.theta1 = th1
+        self.theta2 = th2
+
+        if th3 is not None:
+            self.theta3 = th3
 
         name_upper_arm = "link_upper_arm_v7_1"
         name_fore_arm = "link_fore_arm_v4_1"
         name_hand = "link_hand_v9_1"
         name_finger = "link_finger"
 
-        self.js.position = [th1, th2, th3]
+        self.js.position = [self.theta1, self.theta2, self.theta3]
         self.publisher_angles.publish(self.js)
 
         br = tf2_ros.TransformBroadcaster()
@@ -71,7 +75,7 @@ class ControlArm:
         t0.transform.translation.x = 0
         t0.transform.translation.y = 0
         t0.transform.translation.z = 0.01
-        q0 = tf_conversions.transformations.quaternion_from_euler(0, 0, np.deg2rad(th1))
+        q0 = tf_conversions.transformations.quaternion_from_euler(0, 0, np.deg2rad(self.theta1))
         t0.transform.rotation.x = q0[0]
         t0.transform.rotation.y = q0[1]
         t0.transform.rotation.z = q0[2]
@@ -84,7 +88,7 @@ class ControlArm:
         t1.transform.translation.x = 0.2
         t1.transform.translation.y = 0
         t1.transform.translation.z = 0.038
-        q1 = tf_conversions.transformations.quaternion_from_euler(0, 0, np.deg2rad(th2))
+        q1 = tf_conversions.transformations.quaternion_from_euler(0, 0, np.deg2rad(self.theta2))
         t1.transform.rotation.x = q1[0]
         t1.transform.rotation.y = q1[1]
         t1.transform.rotation.z = q1[2]
@@ -97,7 +101,7 @@ class ControlArm:
         t2.transform.translation.x = 0.15
         t2.transform.translation.y = -0.01925
         t2.transform.translation.z = 0.015
-        q2 = tf_conversions.transformations.quaternion_from_euler(0, np.deg2rad(th3), 0)
+        q2 = tf_conversions.transformations.quaternion_from_euler(0, np.deg2rad(self.theta3), 0)
         t2.transform.rotation.x = q2[0]
         t2.transform.rotation.y = q2[1]
         t2.transform.rotation.z = q2[2]
@@ -122,8 +126,9 @@ class ControlArm:
         br.sendTransform(t2)
         br.sendTransform(t3)
 
-    
-    def up_pen(self):
-        self.theta3 = -20
-        self.update_angles(self.theta1, self.theta2)
 
+    def lift_pen(self):
+        self.update_angles(self.theta1, self.theta2, -30)
+
+    def lower_pen(self):
+        self.update_angles(self.theta1, self.theta2, 0)

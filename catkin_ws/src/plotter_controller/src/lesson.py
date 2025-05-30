@@ -14,7 +14,7 @@ from control_arm import ControlArm
 
 
 def target_line(t):
-    # Need to rewrite this place
+
     x = 200
     y = 200
 
