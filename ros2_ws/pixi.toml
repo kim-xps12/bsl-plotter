@@ -1,0 +1,39 @@
+[workspace]
+channels = ["robostack-jazzy", "conda-forge"]
+name = "bsl_plotter"
+platforms = ["linux-aarch64", "osx-arm64"]
+version = "0.1.0"
+
+[activation]
+scripts = ["install/setup.sh"]
+
+# Jetson用環境変数
+[target.linux-aarch64.activation.env]
+DISPLAY = ":1"
+
+# ========================================
+# 依存関係
+# ========================================
+[dependencies]
+ros-jazzy-desktop = ">=0.11.0,<0.12"
+ros-jazzy-xacro = ">=2.1.1,<3"
+ros-jazzy-robot-state-publisher = ">=3.3.3,<4"
+ros-jazzy-joint-state-publisher = "*"
+ros-jazzy-joint-state-publisher-gui = "*"
+ros-jazzy-tf2-ros = "*"
+ros-jazzy-tf-transformations = "*"
+ros-jazzy-ament-cmake-auto = ">=2.5.4,<3"
+colcon-common-extensions = ">=0.3.0,<0.4"
+compilers = ">=1.11.0,<2"
+pkg-config = ">=0.29.2,<0.30"
+cmake = ">=4.2.2,<5"
+ninja = ">=1.13.2,<2"
+pyqt = ">=5.15"
+filelock = ">=3.20.3,<4"
+numpy = "*"
+
+# ========================================
+# PyPI依存関係
+# ========================================
+[pypi-dependencies]
+feetech-servo-sdk = "*"  # Feetech servo SDK for hardware control
