@@ -50,35 +50,70 @@ It is recommended to use a 3D printer to create the parts. The recommended print
 Extend the cable included with STS3215 to double the length. You can use a connector or solder it.
 
 ### Software
-1. Clone this repository
-    ```
-    git clone --recursive https://github.com/kim-xps12/bsl-plotter.git
+
+1. [pixi](https://pixi.sh/) のインストール(Linux or Mac)
+    ```bash
+    curl -fsSL https://pixi.sh/install.sh | bash
+    source ~/.zshrc
     ```
 
-1. Launch docker container
+1. リポジトリのクローン
     ```
-    cd bsl-plotter/docker_ros
-    docker compose up -d
-    ```
-
-1. Execute a command in a running container
-    ```
-    docker compose exec mynoetic /bin/bash
+    git clone https://github.com/kim-xps12/bsl-plotter.git
+    cd bsl-plotter
+    git checkout ros2_pixi
     ```
 
-1. Check GUI
-    ```
-    xeyes
-    ```
-
-1. Check OpenGL
-    ```
-    glxgears
+1. ROS 2ワークスペースに移動
+    ```bash
+    cd ros2_ws
     ```
 
-1. Enjoy your robotics!
+1. pixi環境をセットアップ（初回のみ）
+    ```bash
+    pixi install
+    ```
 
-## ROS 
+1. パッケージをビルド
+    ```bash
+    pixi run colcon build --symlink-install
+    ```
+
+### Usage
+
+**RViz2でロボットモデルを表示（GUI付きジョイントスライダー）**
+```bash
+pixi run ros2 launch bsl_plotter_description display.launch.py
+```
+
+**テストスイングデモを実行**
+```bash
+pixi run ros2 launch plotter_controller test_swing.launch.py
+```
+
+**ハードウェア制御（実機接続時）**
+
+ターミナル1: RViz2でロボットを表示（GUIスライダーなし）
+```bash
+pixi run ros2 launch bsl_plotter_description display.launch.py gui:=false
+```
+
+ターミナル2: サーボドライバを起動
+```bash
+pixi run ros2 run plotter_controller feetech_driver.py
+```
+
+ターミナル3: テストスイングを実行
+```bash
+pixi run ros2 run plotter_controller test_swing.py
+```
+
+---
+
+## ROS 1 Noetic (Legacy)
+
+> **Note**: ROS 1版は非推奨です。新規利用はROS 2 Jazzy版を推奨します。
+
 You need to operate inside a docker container (*mynoetic*).
 It is required to be able to use multiple terminals using *tmux* or *terminator*. I recommend reading "How to use Terminator" in the Reference section.
 
@@ -98,12 +133,14 @@ It is required to be able to use multiple terminals using *tmux* or *terminator*
     ```
 1. Add new pane, and Launch IK solver
     ```
-    roslaunch plotter_controller test_swing.launch 
+    roslaunch plotter_controller test_swing.launch
     ```
 1. Add new pane, Run servo driver
     ```
     rosrun plotter_controller feetech_driver.py
     ```
+
+---
 
 ## Reference
 [How to use Terminator](terminator/how_to_use_terminator.md)
