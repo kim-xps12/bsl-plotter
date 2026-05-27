@@ -120,6 +120,13 @@ Visualization Manager:
         {}
       Update Interval: 0
       Value: true
+    - Class: tf_trajectory_rviz_plugin/TFTrajectory
+      Enabled: true
+      Name: TFTrajectory
+      color: 25; 255; 240
+      duration: 10
+      frame: link_finger
+      line_width: 0.005
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
