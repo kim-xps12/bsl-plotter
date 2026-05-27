@@ -18,6 +18,7 @@ install(PROGRAMS
   scripts/test_swing.py
   scripts/feetech_driver.py
   scripts/draw_circle.py
+  scripts/example_up_down_pen.py
   scripts/lesson.py
   DESTINATION lib/${PROJECT_NAME}
 )
