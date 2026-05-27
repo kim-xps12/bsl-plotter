@@ -9,13 +9,12 @@ Panels:
         - /RobotModel1
         - /TF1
       Splitter Ratio: 0.5
-    Tree Height: 800
+    Tree Height: 58
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
     Expanded:
       - /2D Pose Estimate1
-      - /2D Nav Goal1
       - /Publish Point1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
@@ -29,10 +28,6 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: ""
-Preferences:
-  PromptSaveOnExit: true
-Toolbars:
-  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -123,10 +118,11 @@ Visualization Manager:
     - Class: tf_trajectory_rviz_plugin/TFTrajectory
       Enabled: true
       Name: TFTrajectory
+      Value: true
       color: 25; 255; 240
       duration: 10
       frame: link_finger
-      line_width: 0.005
+      line_width: 0.004999999888241291
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -166,6 +162,9 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /clicked_point
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
@@ -193,9 +192,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1200
+  Height: 863
   Hide Left Dock: false
   Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000001000000000000023f00000318fc0200000005fb000000100044006900730070006c006100790073010000002c00000113000000e300fffffffb0000001200530065006c0065006300740069006f006e0100000140000000820000006200fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007301000001c3000000820000006200fffffffb0000000a005600690065007700730100000246000000c6000000c600fffffffb0000000800540069006d0065010000030d000000370000003700ffffff000003a80000031800000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -204,6 +204,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1800
-  X: 100
-  Y: 50
+  Width: 1512
+  X: 0
+  Y: 38
