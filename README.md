@@ -79,6 +79,12 @@ Extend the cable included with STS3215 to double the length. You can use a conne
     pixi run colcon build --symlink-install
     ```
 
+1. 更新を取り込む場合（pullした後）
+    ```bash
+    cd ros2_ws
+    pixi run colcon build --symlink-install
+    ```
+
 ### Usage
 
 **RViz2でロボットモデルを表示（GUI付きジョイントスライダー）**
