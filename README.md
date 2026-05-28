@@ -85,7 +85,7 @@ Extend the cable included with STS3215 to double the length. You can use a conne
     pixi run colcon build --symlink-install
     ```
 
-### Usage
+### Usage (visualizer only)
 
 **RViz2でロボットモデルを表示（GUI付きジョイントスライダー）**
 ```bash
@@ -97,6 +97,8 @@ pixi run ros2 launch bsl_plotter_description display.launch.py
 pixi run ros2 launch plotter_controller test_swing.launch.py
 ```
 
+### Usage (with actual plotter)
+
 **レッスン（教材）**
 
 `scripts/lesson.py` の `target_position(t)` を編集して好きな軌道を描かせてみましょう。
@@ -104,22 +106,48 @@ pixi run ros2 launch plotter_controller test_swing.launch.py
 pixi run ros2 launch plotter_controller lesson.launch.py
 ```
 
-**ハードウェア制御（実機接続時）**
-
 ターミナル1: RViz2でロボットを表示（GUIスライダーなし）
 ```bash
+cd ros2_ws
 pixi run ros2 launch bsl_plotter_description display.launch.py gui:=false
 ```
 
-ターミナル2: サーボドライバを起動
+ターミナル2: テストスイングを実行
 ```bash
-pixi run ros2 run plotter_controller feetech_driver.py
-```
-
-ターミナル3: テストスイングを実行
-```bash
+cd ros2_ws
 pixi run ros2 run plotter_controller test_swing.py
 ```
+
+rviz上の動作に問題がなければ実機へ流し込む．
+
+**ハードウェア制御（実機接続時・MacBook）**
+
+FE-URT-1をUSBで接続し、デバイスパスを確認:
+```bash
+ls /dev/tty.usbserial-*
+```
+
+ターミナル2: サーボドライバを起動（デバイスパスを引数で指定）
+```bash
+cd ros2_ws
+pixi run ros2 run plotter_controller feetech_driver.py --ros-args -p device:={YOURT_DEVICE_NAME}
+```
+
+`YOURT_DEVICE_NAME`には`ls /dev/tty.usbserial-*`の結果を用いる．例えば
+
+```bash
+% ls /dev/tty.usbserial-*
+/dev/tty.usbserial-110
+```
+
+と得られた場合には
+
+```bash
+cd ros2_ws
+pixi run ros2 run plotter_controller feetech_driver.py --ros-args -p device:=/dev/tty.usbserial-110
+```
+
+を実行する．
 
 ---
 
