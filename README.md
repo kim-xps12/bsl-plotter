@@ -97,11 +97,6 @@ pixi run ros2 launch bsl_plotter_description display.launch.py
 pixi run ros2 launch plotter_controller test_swing.launch.py
 ```
 
-**ペン上げ下げデモを実行（円描画 + TF軌跡可視化）**
-```bash
-pixi run ros2 launch plotter_controller example_up_down_pen.launch.py
-```
-
 **レッスン（教材）**
 
 `scripts/lesson.py` の `target_position(t)` を編集して好きな軌道を描かせてみましょう。
