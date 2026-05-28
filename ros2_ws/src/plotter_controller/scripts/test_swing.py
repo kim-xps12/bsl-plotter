@@ -52,9 +52,8 @@ class TestSwingNode(Node):
         # Create and publish JointState message
         js = JointState()
         js.header.stamp = self.get_clock().now().to_msg()
-        # Joint names must match URDF joint names (3-DoF arm: rev1, rev2, rev3)
-        js.name = ['rev1', 'rev2', 'rev3']
-        js.position = [theta1_rad, theta2_rad, theta3_rad]
+        js.name = ['rev1', 'rev2', 'rev3', 'rev4']
+        js.position = [theta1_rad, theta2_rad, theta3_rad, 0.0]
         js.velocity = []
         js.effort = []
 
