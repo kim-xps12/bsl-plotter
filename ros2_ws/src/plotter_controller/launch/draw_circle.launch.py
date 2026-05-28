@@ -33,7 +33,19 @@ def generate_launch_description():
         output='screen'
     )
 
+    tf_trajectory_node = Node(
+        package='plotter_controller',
+        executable='tf_trajectory_publisher.py',
+        name='tf_trajectory_publisher',
+        parameters=[{
+            'target_frame': 'link_finger',
+            'reference_frame': 'base_link',
+            'duration': 10.0,
+        }],
+    )
+
     return LaunchDescription([
         display_launch,
         draw_circle_node,
+        tf_trajectory_node,
     ])
