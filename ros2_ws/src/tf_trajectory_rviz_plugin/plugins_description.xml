@@ -1,9 +1,0 @@
-<library path="tf_trajectory_rviz_plugin">
-  <class name="tf_trajectory_rviz_plugin/TFTrajectory"
-         type="tf_trajectory_rviz_plugin::TFTrajectoryDisplay"
-         base_class_type="rviz_common::Display">
-    <description>
-      Visualize the trajectory of a TF frame as a line in RViz2.
-    </description>
-  </class>
-</library>
