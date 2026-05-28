@@ -102,6 +102,13 @@ pixi run ros2 launch plotter_controller test_swing.launch.py
 pixi run ros2 launch plotter_controller example_up_down_pen.launch.py
 ```
 
+**レッスン（教材）**
+
+`scripts/lesson.py` の `target_position(t)` を編集して好きな軌道を描かせてみましょう。
+```bash
+pixi run ros2 launch plotter_controller lesson.launch.py
+```
+
 **ハードウェア制御（実機接続時）**
 
 ターミナル1: RViz2でロボットを表示（GUIスライダーなし）
