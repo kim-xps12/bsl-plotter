@@ -20,6 +20,7 @@ install(PROGRAMS
   scripts/draw_circle.py
   scripts/example_up_down_pen.py
   scripts/lesson.py
+  scripts/tf_trajectory_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

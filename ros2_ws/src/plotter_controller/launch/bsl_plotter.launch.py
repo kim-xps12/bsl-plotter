@@ -65,10 +65,22 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('use_hardware'))
     )
 
+    tf_trajectory_node = Node(
+        package='plotter_controller',
+        executable='tf_trajectory_publisher.py',
+        name='tf_trajectory_publisher',
+        parameters=[{
+            'target_frame': 'link_finger',
+            'reference_frame': 'base_link',
+            'duration': 10.0,
+        }],
+    )
+
     return LaunchDescription([
         use_rviz_arg,
         use_hardware_arg,
         display_launch,
         test_swing_node,
         feetech_driver_node,
+        tf_trajectory_node,
     ])
