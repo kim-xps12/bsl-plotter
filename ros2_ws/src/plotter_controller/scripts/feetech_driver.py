@@ -82,6 +82,10 @@ class FeetechDriverNode(Node):
     def __init__(self):
         super().__init__('feetech_driver')
 
+        self.declare_parameter('device', DEVICENAME)
+        device = self.get_parameter('device').get_parameter_value().string_value
+        self.get_logger().info(f'Using device: {device}')
+
         if not SCSERVO_AVAILABLE:
             self.get_logger().error(
                 'scservo_sdk not available. Install with: pip install scservo-sdk'
@@ -89,7 +93,7 @@ class FeetechDriverNode(Node):
             return
 
         # Initialize serial port
-        self.port_handler = PortHandler(DEVICENAME)
+        self.port_handler = PortHandler(device)
         self.packet_handler = PacketHandler(PROTOCOL_END)
         self.group_sync_write = GroupSyncWrite(
             self.port_handler, self.packet_handler, ADDR_STS_GOAL_POSITION, 2
@@ -199,7 +203,6 @@ class FeetechDriverNode(Node):
 
         for name, position_rad in zip(msg.name, msg.position):
             if name not in JOINT_TO_SERVO_ID:
-                self.get_logger().warn(f'Unknown joint name: {name}')
                 continue
 
             servo_id = JOINT_TO_SERVO_ID[name]
